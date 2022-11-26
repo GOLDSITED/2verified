@@ -47,11 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'apps.cart',
-    'apps.coupon',
-    'apps.core',
-    'apps.order',
-    'apps.store'
+    'cart',
+    'coupon',
+    'core',
+    'order',
+    'store'
 ]
 
 MIDDLEWARE = [
@@ -77,8 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'apps.store.context_processors.menu_categories',
-                'apps.cart.context_processors.cart'
+                'store.context_processors.menu_categories',
+                'cart.context_processors.cart'
             ],
         },
     },
@@ -140,3 +140,5 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 

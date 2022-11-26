@@ -1,0 +1,39 @@
+<div class="columns is-multiline">
+    {% for p in list_products %}
+        <div class="column is-3">
+            <div class="card card-product">
+                <div class="card-image">
+                    <figure class="image-wrap">
+                        <img src="{{ p.get_thumbnail }}" style="width: 80%; height: 200px;">
+                    </figure>
+                </div>
+                
+                <figcaption class="info-wrap">
+					<h6 class="title text-dots"><a href="">{{ p.title }}</a></h6>
+                    
+                    <h6 class="title text-dots"><a href="{% url 'profile' %}">sellerprofile: {{ p.seller_name }}</a></h6>
+                   
+			
+					<div class="action-wrap">
+						
+					
+						<!-- <a href="cart/{{ product.slug }}" class="btn btn-primary btn-sm"> Add to Cart </a>
+            			<a href="cart/" class="btn btn-primary btn-sm"> View Cart </a> -->
+<!--             <a href="remove/{{ product.slug }}" class="btn btn-danger btn-sm"> Remove</a>
+ -->						<!-- price-wrap.// -->
+						 <div class="price-wrap h5">
+							<span class="price-new">${{p.price}}</span>
+							<del class="price-old">${{p.price}}</del>
+						</div> 
+						<p class="title mb-3">{{ p.desc }}</p>
+						<p class="title ">{{ p.date_added }}</p>
+					</div> <!-- action-wrap -->
+				</figcaption>
+
+                <footer class="card-footer">
+                    <a href="{% url 'product_detail' p.category.slug p.slug %}" class="card-footer-item mb-3">View</a>
+                </footer>
+            </div>
+        </div>
+    {% endfor %}
+</div>

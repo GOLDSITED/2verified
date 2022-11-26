@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-STRIPE_API_KEY_PUBLISHABLE = "pk_test_51HIHiuKBJV2qfWbD2gQe6aqanfw6Eyul5P02KeOuSR1UMuaV4TxEtaQyzr9DbLITSZweL7XjK3p74swcGYrE2qEX00Hz7GmhMI"
-STRIPE_API_KEY_HIDDEN = "sk_test_51HIHiuKBJV2qfWbD4I9pAODack7r7r9LJOY65zSFx7jUUwgy2nfKEgQGvorv1p2xP7tgMsJ5N9EW7K1lBdPnFnyK00kdrS27cj"
+STRIPE_API_KEY_PUBLISHABLE = "pk_test_51J8DT3INBZ9p0pqiNlQLtzWQgmerA5TKn2bLcQzYl03pqAp8D4GSynpKHycrYhUEhBXuxCpsH6Cea97ltHPzlwdm009QpZENSU"
+STRIPE_API_KEY_HIDDEN = "sk_test_51J8DT3INBZ9p0pqib3XnYuV3qavQR6yv6rHI9cnhLr8r42n7m2iTuAsY73ebaTDEdFiAF2LZRmKUNYS28ir5AleC00RXRVGBB7"
 
 RAZORPAY_API_KEY_PUBLISHABLE = "rzp_test_Wj7ujrjP6ULkuq"
 RAZORPAY_API_KEY_HIDDEN = "WT8djoNtYSAzA28BrhryFL0f"
@@ -61,13 +61,13 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
 
-    'apps.cart',
-    'apps.coupon',
-    'apps.core',
-    'apps.newsletter',
-    'apps.order',
-    'apps.store',
-    'apps.userprofile'
+    'cart',
+    'coupon',
+    'core',
+    'newsletter',
+    'order',
+    'store',
+    'userprofile'
 ]
 
 MIDDLEWARE = [
@@ -93,8 +93,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'apps.store.context_processors.menu_categories',
-                'apps.cart.context_processors.cart'
+                'store.context_processors.menu_categories',
+                'cart.context_processors.cart'
             ],
         },
     },
@@ -156,3 +156,5 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
