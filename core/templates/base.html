@@ -54,14 +54,18 @@
 						{% endif %}		
 					{% endfor %}
 					
-					<div class="navbar-item">
-						<a href="{% url 'cart' %}" class="button is-primary">Cart ([[ numItems ]])</a>
-					</div>
+					
 
 					{% if request.user.is_authenticated %}
-						<div class="navbar-item">
+						<div class="navbar-item ">
 							<a href="{% url 'addProducts' %}" class="button ">ADD.P</a>
-							<a href="{% url 'myaccount' %}" class="button is-light">My account</a>
+							<a href="{% url 'mylistings' %}" class="button">My LISTS</a>
+							<a href="{% url 'contact' %}" class="button">CONTACT</a>
+							<div class="navbar-item">
+								<a href="{% url 'cart' %}" class="button is-primary">Cart ([[ numItems ]])</a>
+							</div>
+							<a href="{% url 'myaccount' %}" class="button is-success">My account</a>
+
 							
 						</div>
 					{% else %}

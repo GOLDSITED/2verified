@@ -29,6 +29,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255)
     description = models.TextField(blank=True, null=True)
     price = models.FloatField()
+    old_price = models.FloatField(default=0)
     is_featured = models.BooleanField(default=False)
     num_available = models.IntegerField(default=1)
     num_visits = models.IntegerField(default=0)

@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
 {% block content  %}
-<div class="text-2xl m-10 p-10 font-bold"> 🎴My Listings</div>
-{% for product in products %}
-    <div class="itemcontainer flex shadow-lg m-10 p-10">
-        <span class="w-1/5">
+<div class="title is-3"> 🎴My Listings</div>
+<div class="column is-multiline ">
+    {% for product in products %}
+    <div class="card card-product ">
+        <span class="card-image ">
             <img class="w-20 -20" src="{{product.image.url}}" alt="">
         </span>
-        <span class="w-2/5">
-            <div class="font-bold text-gray-700">{{product.name}}</div>
+        <span class="subtitle">
+            <div class="font-bold text-gray-700">{{product.title}}</div>
             <div class="text-green-500">$ {{product.price}}</div>
-            <div>{{product.desc}}</div>
+            <div>{{product.description}}</div>
         </span>
-        <span class="w-1/5 my-10 mx-10">
-            <a class="bg-green-500 text-white font-bold px-5 py-2" href="">Edit</a>
+        <span class="button is-success">
+            <a class="bg-green-500 text-white font-bold px-5 py-2" href="{% url 'update_product' product.id %}">Edit</a>
         </span>
-        <span class="w-1/5 my-10 mx-10">
-            <a class="bg-red-500 text-white font-bold px-5 py-2" href="">Delete</a>
+        <span class="button is-success">
+            <a class="bg-red-500 text-white font-bold px-5 py-2" href="{% url 'delete_product' product.id %}">Delete</a>
         </span>
     </div>
+</div>
+
 {% endfor %}
 {% endblock %}
 

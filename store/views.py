@@ -109,14 +109,28 @@ def addproducts(request):
     }
     return render(request, 'addproducts.html', context)
 
-class ProductUpdateView(UpdateView):
-    model = Product
-    fields = ['seller_name','category','title','slug','description','price','is_featured', 'num_available','last_visit','image','thumbnail']
-    template_name_suffix = '_update_form'
+def delete_product(request,id):
+    product = Product.objects.get(id=id)
+    context={
+        'product':product,
+    }
+    if request.method =='POST':
+        product.delete()
+        return redirect('frontpage')
+    return render (request,'delete.html',context)
 
 def my_listings(request):
-        products = Product.objects.filter(seller_name=request.user)
+        products = Product.objects.filter()
         context ={
             'products':products,
         }
-        return render(request,'products/mylistings.html',context)
+        return render(request,'mylistings.html',context)
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ['seller_name','category','title','slug','description','price','old_price','is_featured', 'num_available','last_visit','image','thumbnail']
+    template_name = 'product_update.html'
+
+
+

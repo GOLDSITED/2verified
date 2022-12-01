@@ -8,10 +8,10 @@
                     </figure>
                 </div>
                 
-                <figcaption class="info-wrap">
+                <figcaption class="info-wrap column is-10 ">
 					<h6 class="title text-dots"><a href="">{{ p.title }}</a></h6>
                     
-                    <h6 class="title text-dots"><a href="{% url 'profile' %}">sellerprofile: {{ p.seller_name }}</a></h6>
+                    <div class="title text-dots">Posted by:<span class="text-indigo-700">{{p.seller_name}}</span></div>
                    
 			
 					<div class="action-wrap">
@@ -21,9 +21,9 @@
             			<a href="cart/" class="btn btn-primary btn-sm"> View Cart </a> -->
 <!--             <a href="remove/{{ product.slug }}" class="btn btn-danger btn-sm"> Remove</a>
  -->						<!-- price-wrap.// -->
-						 <div class="price-wrap h5">
+						 <div class="price-wrap h5 subtitle is 4 column is-10">
 							<span class="price-new">${{p.price}}</span>
-							<del class="price-old">${{p.price}}</del>
+							<del class="price-old">${{p.old_price}}</del>
 						</div> 
 						<p class="title mb-3">{{ p.desc }}</p>
 						<p class="title ">{{ p.date_added }}</p>

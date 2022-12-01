@@ -4,15 +4,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.auth import views
-
+from django.contrib.auth import views as auth_views
 
 from cart.webhook import webhook
 from cart.views import cart_detail, success
-from core.views import frontpage, contact, about
+from core.views import frontpage, about
 from order.views import admin_order_pdf
-from store.views import product_detail, category_detail, search, addproducts, ProductUpdateView
-from userprofile.views import signup, myaccount, profile, seller_profile
-
+from store.views import product_detail, category_detail, search, delete_product, my_listings,  addproducts, ProductUpdateView
+from userprofile.views import signup, myaccount, profile, seller_profile, create_profile, contact_view
+from django.views.generic.edit import UpdateView
 
 from newsletter.api import api_add_subscriber
 from coupon.api import api_can_use
@@ -24,12 +24,15 @@ sitemaps = {'static': StaticViewSitemap, 'product': ProductSitemap, 'category': 
 
 urlpatterns = [
     path('', frontpage, name='frontpage'),
-    path('add/',addproducts,name='addProducts'),
+    path('add/', addproducts, name='addProducts'),
+    path('mylistings/', my_listings,name='mylistings'),
+    path('delete/<int:id>/', delete_product,name='delete_product'),
+    path('update/<int:pk>/',ProductUpdateView.as_view(),name='update_product'),
     path('search/', search, name='search'),
     path('cart/', cart_detail, name='cart'),
     path('hooks/', webhook, name='webhook'),
     path('cart/success/', success, name='success'),
-    path('contact/', contact, name='contact'),
+    
     path('about/', about, name='about'),
     path('admin/', admin.site.urls),
     path('admin/admin_order_pdf/<int:order_id>/', admin_order_pdf, name='admin_order_pdf'),
@@ -42,6 +45,9 @@ urlpatterns = [
     path('login/', views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('profile/', profile, name='profile'),
+    path('sellerprofile/<int:id>/',seller_profile,name='sellerprofile'),
+    path('createprofile/',create_profile,name='createprofile'),
+    path('contact/', contact_view, name='contact'),
    
    
   

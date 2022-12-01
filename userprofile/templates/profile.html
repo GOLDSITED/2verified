@@ -5,9 +5,9 @@
 <div class="grid p-10 grid-cols-1 lg:grid-cols-3 sm:grid-cols-1"></div>
 <div class="rounded shadow-lg w-2/3">
     <div>
-        <img class="image is-128x128" src="{{user.userprofile.image.url}}" class="image is-128x128" alt="">
+        <img src="{{user.userprofile.image.url}}"  alt="" style="width: 20%; height: 300px;">
     </div>
-    <div class="font-bold text-xl mb-2 px-6 py-4">{{user}}</div>
-    <div class="font-bold text-xl mb-2 px-6 py-4">{{user.userprofile.phone}}</div>
+    <div class="title is-4">{{user}}</div>
+    <div class="subtitle is2">{{user.userprofile.phone}}</div>
 </div>
 {% endblock %}
