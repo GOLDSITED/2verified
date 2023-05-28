@@ -53,7 +53,7 @@ def validate_payment(request):
 def create_checkout_session(request):
     data = json.loads(request.body)
 
-    # Coupon 
+    # Coupon
 
     coupon_code = data['coupon_code']
     coupon_value = 0
@@ -69,7 +69,7 @@ def create_checkout_session(request):
 
     cart = Cart(request)
     items = []
-    
+
     for item in cart:
         product = item['product']
 
@@ -95,15 +95,15 @@ def create_checkout_session(request):
     session = ''
     order_id = ''
     payment_intent = ''
-    
+
     if gateway == 'stripe':
         stripe.api_key = settings.STRIPE_API_KEY_HIDDEN
         session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=items,
             mode='payment',
-            success_url='http://127.0.0.1:8000/cart/success/',
-            cancel_url='http://127.0.0.1:8000/cart/'
+            success_url= 'http://AdeyemiSalaafin.pythonanywhere.com/success',
+            cancel_url= 'http://AdeyemiSalaafin.pythonanywhere.com/cart'
         )
         payment_intent = session.payment_intent
 
@@ -120,7 +120,7 @@ def create_checkout_session(request):
 
     if coupon_value > 0:
         total_price = total_price * (coupon_value / 100)
-    
+
     if gateway == 'razorpay':
         order_amount = total_price * 100
         order_currency = 'INR'
@@ -131,7 +131,7 @@ def create_checkout_session(request):
         }
 
         payment_intent = client.order.create(data=data)
-    
+
     # PayPal
 
     if gateway == 'paypal':
@@ -185,7 +185,7 @@ def api_add_to_cart(request):
         cart.add(product=product, quantity=1, update_quantity=False)
     else:
         cart.add(product=product, quantity=quantity, update_quantity=True)
-    
+
     return JsonResponse(jsonresponse)
 
 def api_remove_from_cart(request):

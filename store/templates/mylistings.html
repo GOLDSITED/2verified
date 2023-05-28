@@ -3,20 +3,20 @@
 <div class="title is-3"> 🎴My Listings</div>
 <div class="column is-multiline ">
     {% for product in products %}
-    <div class="card card-product ">
+    <div class="card card-product column is-5 ">
         <span class="card-image ">
-            <img class="w-20 -20" src="{{product.image.url}}" alt="">
+            <img class="" src="{{product.image.url}}" alt="" style="width: 80%; height: 300px; >
         </span>
-        <span class="subtitle">
+        <span class="subtitle column is 10">
             <div class="font-bold text-gray-700">{{product.title}}</div>
             <div class="text-green-500">$ {{product.price}}</div>
-            <div>{{product.description}}</div>
+            
         </span>
         <span class="button is-success">
-            <a class="bg-green-500 text-white font-bold px-5 py-2" href="{% url 'update_product' product.id %}">Edit</a>
+            <a class="px-5 py-2" href="{% url 'update_product' product.id %}">Edit</a>
         </span>
         <span class="button is-success">
-            <a class="bg-red-500 text-white font-bold px-5 py-2" href="{% url 'delete_product' product.id %}">Delete</a>
+            <a class=" px-5 py-2" href="{% url 'delete_product' product.id %}">Delete</a>
         </span>
     </div>
 </div>

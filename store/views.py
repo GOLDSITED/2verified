@@ -119,8 +119,9 @@ def delete_product(request,id):
         return redirect('frontpage')
     return render (request,'delete.html',context)
 
+
 def my_listings(request):
-        products = Product.objects.filter()
+        products = Product.objects.filter(seller_name=request.user)
         context ={
             'products':products,
         }
@@ -129,7 +130,7 @@ def my_listings(request):
 
 class ProductUpdateView(UpdateView):
     model = Product
-    fields = ['seller_name','category','title','slug','description','price','old_price','is_featured', 'num_available','last_visit','image','thumbnail']
+    fields = ['category','title','slug','description','price','old_price','num_available','last_visit','image','thumbnail']
     template_name = 'product_update.html'
 
 

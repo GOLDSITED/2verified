@@ -13,13 +13,13 @@
                 <li><a href="{% url 'category_detail' product.category.slug %}">{{ product.category.title }}</a></li>
                 <li class="is-active"><a href="{% url 'product_detail' product.category.slug product.slug %}">{{ product.title }}</a></li>
             </ul>
-        
-         
+
+
         </nav>
 
         <div class="columns">
             <div class="column is-4">
-                <figure class="image is-4by3">
+                <figure class="image is-4by4">
                     <img :src="mainImage">
                 </figure>
             </div>
@@ -36,8 +36,10 @@
             </div>
         {% endif %}
         <div class="column is-4 title is-4">
-            <a href="{% url 'sellerprofile' product.seller_name.id %}"> Posted by:  {{product.seller_name}}</a>
+            <a href="{% url 'sellerprofile' product.seller_name.id %}">Posted by:{{product.seller_name}}</a>
                 </div>
+                <p class="subtitle ">LastVisit:  {{ product.last_visit }}</p>
+
         <hr>
         <h1 class="title">{{ product.title }}</h1>
         <h2 class="subtitle">${{ product.price }}, Stars: {% if product.get_rating == 0 %}No ratings yet{% else %}{{ product.get_rating|floatformat:1 }}{% endif %}</h2>
@@ -46,7 +48,7 @@
             <p>{{ product.description }}</p>
         {% endif %}
 
-        <h2 class="subtitle">Add to cart</h2>
+        <h2 class="title"></h2>
 
         {% if product.variants.all %}
             <div class="columns">
@@ -223,11 +225,11 @@
                 console.log('Product_id:', product_id);
 
                 var data = {
-                    'product_id': product_id, 
+                    'product_id': product_id,
                     'update': false,
                     'quantity': 1
                 };
-                    
+
                 fetch('/api/add_to_cart/', {
                     method: 'POST',
                     headers: {

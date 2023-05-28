@@ -7,9 +7,9 @@ from . models import Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['seller_name','category','title','slug','description','price','old_price','is_featured', 'num_available','last_visit','image','thumbnail']
+        fields = ['category','title','slug','description','price','old_price','is_featured', 'num_available','last_visit','image','thumbnail']
         widgets = {
-            
+
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.TextInput(attrs={'class': 'form-control'}),
@@ -20,4 +20,3 @@ class ProductForm(forms.ModelForm):
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'thumbnail': forms.FileInput(attrs={'class': 'form-control'}),
         }
-    

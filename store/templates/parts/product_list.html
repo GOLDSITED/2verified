@@ -4,29 +4,31 @@
             <div class="card card-product">
                 <div class="card-image">
                     <figure class="image-wrap">
-                        <img src="{{ p.get_thumbnail }}" style="width: 80%; height: 200px;">
+                        <img src="{{ p.get_thumbnail }}" style="width: 120%; height: 370px;">
                     </figure>
                 </div>
-                
+
                 <figcaption class="info-wrap column is-10 ">
-					<h6 class="title text-dots"><a href="">{{ p.title }}</a></h6>
-                    
-                    <div class="title text-dots">Posted by:<span class="text-indigo-700">{{p.seller_name}}</span></div>
-                   
-			
+					<h6 class="title text-dots"><a href="{% url 'product_detail' p.category.slug p.slug %}">{{ p.title }}</a></h6>
+
+                    <div class="subtitle text-dots  mt-5">SellerName: <span class="text-indigo-700">{{p.seller_name}}</span></div>
+
+
 					<div class="action-wrap">
-						
-					
+                        Verified : {{p.is_featured}}
+
+
 						<!-- <a href="cart/{{ product.slug }}" class="btn btn-primary btn-sm"> Add to Cart </a>
             			<a href="cart/" class="btn btn-primary btn-sm"> View Cart </a> -->
 <!--             <a href="remove/{{ product.slug }}" class="btn btn-danger btn-sm"> Remove</a>
  -->						<!-- price-wrap.// -->
-						 <div class="price-wrap h5 subtitle is 4 column is-10">
+						 <div class="price-wrap h5 subtitle is 4 ">
+
 							<span class="price-new">${{p.price}}</span>
 							<del class="price-old">${{p.old_price}}</del>
-						</div> 
-						<p class="title mb-3">{{ p.desc }}</p>
-						<p class="title ">{{ p.date_added }}</p>
+						</div>
+
+						 <p class="subtitle ">{{ p.date_added }}</p>
 					</div> <!-- action-wrap -->
 				</figcaption>
 

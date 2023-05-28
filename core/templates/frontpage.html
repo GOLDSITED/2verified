@@ -3,43 +3,43 @@
 {% block title %}Welcome | {% endblock %}
 
 {% block content %}
-    <h2 class="subtitle is-4 has-text-centered">Featured products</h2>
-    
+    <h2 class="title is-4 has-text-centered">Featured products</h2>
+
     {% with products as list_products %}
         {% include 'parts/product_list.html' %}
     {% endwith %}
 
     <hr>
 
-    
+
         {% for category in featured_categories %}
-            <h2 class="subtitle is-4 has-text-centered">{{ category.title }}</h2>
-        
+            <h2 class="title is-4 has-text-centered">{{ category.title }}</h2>
+
             {% with category.products.all|slice:":4" as list_products %}
                 {% include 'parts/product_list.html' %}
-            {% endwith %}    
+            {% endwith %}
         {% endfor %}
-   
 
-    <h2 class="subtitle is-4 has-text-centered">Popular products</h2>
-        
+
+    <h2 class="title is-4 has-text-centered">Popular products</h2>
+
     {% with popular_products as list_products %}
         {% include 'parts/product_list.html' %}
-    {% endwith %} 
+    {% endwith %}
 
-    <h2 class="subtitle is-4 has-text-centered">Recently viewed products</h2>
-        
+    <h2 class="title is-4 has-text-centered">Recently viewed products</h2>
+
     {% with recently_viewed_products as list_products %}
         {% include 'parts/product_list.html' %}
-    {% endwith %}  
+    {% endwith %}
 
 
-    
 
 
-    <h3>PAGINATION</h3>
-    <div class="row m-5">
-        <div class="col md">
+
+    <h3></h3>
+    <div class="row m-10">
+        <div class="col-md-12 m-3">
 
             {% if products.has_other_pages %}
 
@@ -76,7 +76,7 @@
 
                 </li>
                 {% endif %}
-                
+
 
                 {% endfor %}
 
@@ -100,8 +100,8 @@
 
                 </ul>
 
-            
-            
+
+
             {%  endif %}
 
 

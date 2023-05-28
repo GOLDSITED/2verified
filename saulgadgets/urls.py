@@ -31,11 +31,11 @@ urlpatterns = [
     path('search/', search, name='search'),
     path('cart/', cart_detail, name='cart'),
     path('hooks/', webhook, name='webhook'),
-    path('cart/success/', success, name='success'),
-    
+    path('success/', success, name='success'),
+
     path('about/', about, name='about'),
     path('admin/', admin.site.urls),
-    path('admin/admin_order_pdf/<int:order_id>/', admin_order_pdf, name='admin_order_pdf'),
+    path('admin_order_pdf/<int:order_id>/', admin_order_pdf, name='admin_order_pdf'),
 
 
     # Auth
@@ -48,9 +48,9 @@ urlpatterns = [
     path('sellerprofile/<int:id>/',seller_profile,name='sellerprofile'),
     path('createprofile/',create_profile,name='createprofile'),
     path('contact/', contact_view, name='contact'),
-   
-   
-  
+
+
+
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 

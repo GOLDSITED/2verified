@@ -36,7 +36,7 @@ SECRET_KEY = 'hy@@^j(ita$-q&1*1+gr!mje4_2cc!z4d8u8q8_z(y@2e(vm*1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'adeyemisalaafin.pythonanywhere.com']
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
@@ -151,14 +151,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = 'frontpage'
+SUCCESS_REDIRECT_URL = 'frontpage'

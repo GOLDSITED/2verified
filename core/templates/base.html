@@ -44,29 +44,29 @@
 						{% else %}
 							<div class="navbar-item has-dropdown is-hoverable">
 								<a href="{% url 'category_detail' category.slug %}" class="navbar-link">{{ category.title }}</a>
-							
+
 								<div class="navbar-dropdown">
 									{% for subcategory in category.children.all %}
 										<a href="{% url 'category_detail' subcategory.slug %}" class="navbar-item">{{ subcategory.title }}</a>
 									{% endfor %}
 								</div>
 							</div>
-						{% endif %}		
+						{% endif %}
 					{% endfor %}
-					
-					
+
+
 
 					{% if request.user.is_authenticated %}
 						<div class="navbar-item ">
-							<a href="{% url 'addProducts' %}" class="button ">ADD.P</a>
-							<a href="{% url 'mylistings' %}" class="button">My LISTS</a>
-							<a href="{% url 'contact' %}" class="button">CONTACT</a>
+							<a href="{% url 'addProducts' %}" class="button mx-2 ">ADD.P</a>
+							<a href="{% url 'mylistings' %}" class="button mx-2">My LISTS</a>
+							<a href="{% url 'contact' %}" class="button mx-2 ">CONTACT</a>
 							<div class="navbar-item">
 								<a href="{% url 'cart' %}" class="button is-primary">Cart ([[ numItems ]])</a>
 							</div>
 							<a href="{% url 'myaccount' %}" class="button is-success">My account</a>
 
-							
+
 						</div>
 					{% else %}
 						<div class="navbar-item">
@@ -90,23 +90,23 @@
 		<footer class="footer">
 			<div class="columns">
 				<div class="column is-4">
-					<h2 class="subtitle">ADEYEMIS</h2>
+					<h2 class="subtitle"></h2>
 				</div>
 
 				<div class="column is-8">
-					<a href="{% url 'contact' %}" class="navbar-item">Contact</a>
-					<a href="{% url 'about' %}" class="navbar-item">About</a>
+					<a href="{% url 'contact' %}" class="navbar-item"></a>
+					<a href="{% url 'about' %}" class="navbar-item"></a>
 
 					<div class="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
 						<div class="px-3 md:px-0">
-							<h3 class="font-bold text-gray-900">Social</h3>
+							<h3 class="font-bold text-gray-900"></h3>
 							<ul class="list-reset items-center pt-3">
 								<li>
 									<a class="inline-block no-underline hover:text-black hover:underline py-1 text-blue-900" href="https://twitter.com/Adeyemisam125">Twitter</a>
-		
+
 									<a class="inline-block no-underline hover:text-black hover:underline py-1 px-3 text-blue-900 " href="https://facebook.com/Adeyemialaafin125">Facebook</a>
 									<a class="inline-block no-underline hover:text-black hover:underline py-1 px-3 text-blue-900 " href="https://instagram.com/Adeyemi.adedotun.399">Instagram</a>
-									<a class="inline-block no-underline hover:text-black hover:underline py-1 px-3 text-blue-900 " href="https://wa.me/09051485282?text=Adeyemi%20again">Whatsapp</a>
+									<a class="inline-block no-underline hover:text-black hover:underline py-1 px-3 text-blue-900 " href="https://wa.link/gscrul">Whatsapp</a>
 								</li>
 							</ul>
 						</div>
@@ -115,7 +115,7 @@
 			</div>
 		</footer>
 
-	
+
 
 		<script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
 		<script>
